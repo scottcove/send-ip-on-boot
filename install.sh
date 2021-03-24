@@ -115,7 +115,7 @@ echo "If using gmail, this can be set, and obtained by following this guide: htt
 echo
 
 while [[ -z "$password" ]]; do
-    read -r -ps "Password: " password
+    read -rs -p "Password: " password
     if [[ -z "$password" ]]; then
         echo "${RED}Cannot be blank!${NOCOL}"
     fi
