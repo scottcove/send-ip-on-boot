@@ -90,7 +90,7 @@ while [[ -z "$smtp_server" ]]; do
     echo "Please enter the outgoing (smtp) server, including the port number."
     echo 'For the case of gmail, this is smtp.gmail.com:465'
     echo "Leave blank for the default"
-    read -pr 'Mail Server [smtp.gmail.com:465]: ' smtp_server
+    read -r -p 'Mail Server [smtp.gmail.com:465]: ' smtp_server
     smtp_server=${smtp_server:='smtp.gmail.com:465'}
 done
 echo "mailhub=$smtp_server" >> $ssmtp_config
@@ -100,9 +100,9 @@ echo
 echo "Please enter the email address, or username you send email from."
 echo "For Gmail, this will be your full email address"
 while [[ -z "$username" ]]; do
-    read -pr "Email address or username: " username
+    read -r -p "Email address or username: " username
     if [[ -z "$username" ]]; then
-        echo "${RED}Cannot be blank!"
+        echo "${RED}Cannot be blank!${NOCOL}"
     fi
 done
 echo "AuthUser=$username" >> $ssmtp_config
@@ -115,9 +115,9 @@ echo "If using gmail, this can be set, and obtained by following this guide: htt
 echo
 
 while [[ -z "$password" ]]; do
-    read -prs "Password: " password
+    read -r -ps "Password: " password
     if [[ -z "$password" ]]; then
-        echo "${RED}Cannot be blank!"
+        echo "${RED}Cannot be blank!${NOCOL}"
     fi
 done
 echo "AuthPass=$password" >> "$ssmtp_config"
@@ -143,7 +143,7 @@ echo
 echo "Where do you want to send these notifications to?"
 echo "Please enter an email address that will be receiving these notifications.  This can be the same as the from address."
 while [[ -z "$to_email_address" ]]; do
-    read -prs "email address to send to: " to_email_address
+    read -r -ps "email address to send to: " to_email_address
     if [[ -z "$to_email_address" ]]; then
         echo "${RED}Cannot be blank!"
     fi
