@@ -143,7 +143,7 @@ echo
 echo "Where do you want to send these notifications to?"
 echo "Please enter an email address that will be receiving these notifications.  This can be the same as the from address."
 while [[ -z "$to_email_address" ]]; do
-    read -r -ps "email address to send to: " to_email_address
+    read -r -p "email address to send to: " to_email_address
     if [[ -z "$to_email_address" ]]; then
         echo "${RED}Cannot be blank!"
     fi
