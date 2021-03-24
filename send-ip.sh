@@ -35,6 +35,7 @@ ip_addresses_raw=$(ip a | grep -v "lo:" | grep -A 3 "state UP")
 # Check that there is actually an interface that is declaring itself up, else sleep for a second, and try again
 while [[ -z "$ip_addresses_raw" ]]; do
     sleep 1
+    ip_addresses_raw=$(ip a | grep -v "lo:" | grep -A 3 "state UP")
 done
 
 # Begin the email
