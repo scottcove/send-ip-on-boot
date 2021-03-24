@@ -182,7 +182,14 @@ sleep 1
 echo "Finished installing.  It is highly recommended you run this once to test.  If the test fails, you can simply rerun this script"
 echo " or manually edit the /etc/ssmtp/ssmtp.conf and ${DIR}/email.conf files manually to troubleshoot."
 validate-yesno-input "Run the send-ip script once [Y/n]: " "y"
-if [[ "$user_input" == "yes" ]]; then
+if [[ "$user_input" == "y" ]]; then
     ${DIR}/send-ip
+    if [ $? -gt 0 ]; then
+        echo "It looks like this had an error.  Please check, and rerun the install script if nessecary."
+        exit 1
+    else
+        echo "It looks like this ran well.  Better check your email!"
+        exit 0
+    fi
 fi
 exit 0

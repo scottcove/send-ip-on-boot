@@ -39,6 +39,7 @@ done
 
 # Begin the email
 cat > $temp_file << EOL
+Subject: Your device has an IP Address!
 Hi there,
 
 This is your device ${hostname} speaking.
@@ -66,6 +67,12 @@ echo "Happy testing!" >> $temp_file
 
 # And now we send the email as set up by the install script.
 cat $temp_file | ssmtp $to_email_address
+if [[ $? -gt 0 ]]; then
+    exit_code=1
+else
+    exit_code=0
+fi
 
 # Clean up after ourselves
 rm -f $temp_file
+exit $exit_code
