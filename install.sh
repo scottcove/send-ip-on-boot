@@ -165,7 +165,7 @@ mv ${DIR}/ssmtp.conf /etc/ssmtp/ssmtp.conf
 
 echo "----------------- Installing cronjob -----------------"
 #See here for the Explanation of this:  https://stackoverflow.com/a/17975418
-  croncmd="${DIR}/send-ip > /dev/null 2>&1"
+  croncmd="${DIR}/send-ip.sh > /dev/null 2>&1"
   cronjob="@reboot $croncmd"
 
   # To add it to the crontab, with no duplication:
