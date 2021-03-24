@@ -90,8 +90,8 @@ while [[ -z "$smtp_server" ]]; do
     echo "Please enter the outgoing (smtp) server, including the port number."
     echo "For the case of gmail, this is smtp.gmail.com:465"
     echo "Leave blank for the default"
-    read -pr "Mail Server [smtp.gmail.com:465]: " smtp_server
-    smtp_server=${smtp_server:="smtp.gmail.com:465"}
+    read -pr 'Mail Server [smtp.gmail.com:465]: ' smtp_server
+    smtp_server=${smtp_server:='smtp.gmail.com:465'}
 done
 echo "mailhub=$smtp_server" >> $ssmtp_config
 

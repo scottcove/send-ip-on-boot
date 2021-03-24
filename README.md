@@ -12,12 +12,14 @@ Nonetheless, use at your own risk.
 
 Installation is simple.  On a git enabled device (`sudo apt install git -y` if not installed) Run the following commands to get started:
 
-- `sudo cd /opt`
+- drop to a root shell using `sudo -i`
+- `cd /opt`
 - `git clone https://github.com:scottcove/send-ip-on-boot.git`
 - `cd send-ip-on-boot`
 - `chmod +x install.sh`
 - `./install.sh`
 - Follow the prompts.
+- `exit` to leave the root shell.
 
 That's it!  Happy testing.
 
