@@ -156,12 +156,12 @@ echo "Thanks."
 # Install ssmtp
 if [[ -z "$(command -v ssmtp)" ]]; then
     echo "----------------- Installing ssmtp -----------------"
-    sudo apt-get -y ssmtp
+    sudo apt-get -y install ssmtp
 fi
 
 # Configure ssmtp
 mv /etc/ssmtp/ssmtp.conf{,.bak}
-mv ${DIR}ssmtp.conf /etc/ssmtp/ssmtp.conf
+mv ${DIR}/ssmtp.conf /etc/ssmtp/ssmtp.conf
 
 echo "----------------- Installing cronjob -----------------"
 #See here for the Explanation of this:  https://stackoverflow.com/a/17975418
@@ -181,7 +181,7 @@ sleep 1
 
 echo "Finished installing.  It is highly recommended you run this once to test.  If the test fails, you can simply rerun this script"
 echo " or manually edit the /etc/ssmtp/ssmtp.conf and ${DIR}/email.conf files manually to troubleshoot."
-validate-yesno-input "Run the send-ip script once [Y/n]: "
+validate-yesno-input "Run the send-ip script once [Y/n]: " "y"
 if [[ "$user_input" == "yes" ]]; then
     ${DIR}/send-ip
 fi
