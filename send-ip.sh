@@ -16,7 +16,7 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
-if [[ -f "${DIR}/email.conf" ]]; then
+if [[ ! -f "${DIR}/email.conf" ]]; then
     echo "No config file found."
     echo "${DIR}/email.conf does not exist.  Please make sure that the install script has been run."
     echo "If you're sure you know what you're doing, please create an email.conf file with the following:"
