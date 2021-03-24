@@ -88,7 +88,7 @@ echo "The next section will set up the mail server to send from.  This should be
 while [[ -z "$smtp_server" ]]; do
     echo 
     echo "Please enter the outgoing (smtp) server, including the port number."
-    echo "For the case of gmail, this is smtp.gmail.com:465"
+    echo 'For the case of gmail, this is smtp.gmail.com:465'
     echo "Leave blank for the default"
     read -pr 'Mail Server [smtp.gmail.com:465]: ' smtp_server
     smtp_server=${smtp_server:='smtp.gmail.com:465'}
